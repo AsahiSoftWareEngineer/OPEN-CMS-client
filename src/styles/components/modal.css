@@ -1,0 +1,56 @@
+@media screen and (min-width: 959px){
+    div.modal-background{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background-color: rgba(0, 0, 0, .5);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 10;
+    }
+
+    div.modal {
+        position: relative;
+        min-width: 40px;
+        min-height: 40px;
+        border-radius: 5px;
+        box-shadow: 0 0 2px 2px #f0f0f0;
+        background-color: #fff;
+    }
+
+    div.modal .modal-header {
+        position: relative;
+        width: 100%;
+        height: 32px;
+        display: flex;
+        align-items: center;
+    }
+    .modal-header .close {
+        position: relative;
+        width: 32px;
+        height: 32px;
+        border: none;
+        background-color: transparent;
+        color: #676767;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .modal-header .close svg {
+        position: relative;
+        width:24px;
+        height: 24px;
+    }
+    div.modal .modal-body {
+        position: relative;
+        width: 100%;
+        height: calc(100% - 40px);
+        display: flex;
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,179 @@
+@media screen and (min-width: 959px) {
+    .content-editor {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .content-editor::-webkit-scrollbar {
+        width: 0;
+    }
+    .content-editor .page-title {
+        position: relative;
+        width: 80%;
+        font-size: 16px;
+        color: #676767;
+        margin-bottom: 64px;
+        display: flex;
+        align-items: center;
+    }
+    .back-button {
+        position: absolute;
+        right: 0;
+    }
+    .page-title .name {
+        font-size: 24px;
+        font-weight: bold;
+        color: #676767
+    }
+    .content-editor .content-item {
+        position: relative;
+        width: 80%;
+        height: 64px;
+        flex-shrink: 0;
+    }
+    .content-item .title {
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .image-item .item-text-input .widget,
+    .image-item .item-text-input .widget input ,
+    .text-item .item-text-input .widget,
+    .text-item .item-text-input .widget input{
+        position: relative;
+        width: 100%;
+        height: 32px;
+    }
+    .passage-item .widget {
+        position: relative;
+        width: 100%;
+        height: 240px;
+    }
+    .content-editor .text-item {
+        height: 144px;
+        flex-shrink: 0;
+    }
+    .content-editor .passage-item {
+        position: relative;
+        height: 320px;
+    }
+    .passage-item.widget{
+        position: relative;
+        height: 320px;
+    }
+    .image-item .widget {
+        position: relative;
+        width: 100%;
+        height: 400px;
+    }
+    .passage-item textarea {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        resize: none;
+        border: none;
+        border: solid 1px #d0d0d0;
+        border-radius: 5px;
+        color: #676767;
+    }
+    .content-editor .image-item {
+        position: relative;
+        height: 560px;
+    }
+    .image-item .image-picker {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+    .image-item .image-picker .picker {
+        position: relative;
+        width: 100%;
+        margin-top: 24px;
+    }
+    .image-item .image-picker .preview {
+        position: relative;
+        width: 40%;
+        background-color: #f0f0f0;
+        height: 240px;
+        border-radius: 5px;
+        margin-top: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .image-item .preview span {
+        position: relative;
+        font-weight: bold;
+        color: #676767;
+        display: flex;
+        align-items: center;
+    }
+    .image-item .preview img {
+        position: relative;
+        height: 100%;
+    }
+    
+    .content-editor footer {
+        position: fixed;
+        width: calc(100% - 165px);
+        background-color: #fff;
+        display: flex;
+        justify-content: right;
+        padding: 0
+    }
+    .content-editor footer button {
+        position: relative;
+        width: 160px;
+        height: 40px;
+        margin-right: 24px;
+    }
+    .image-picker {
+        position: relative;
+        width:  720px;
+        height: 640px;
+        margin-top: 64px;
+    }
+    .image-picker footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+    .image-picker .image-frame {
+        width: 200px;
+        height: 232px;
+        margin: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .image-picker img {
+        cursor: pointer;
+    }
+
+    .image-picker footer button.cloud-upload {
+        position: absolute;
+        left: 16px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+    }
+
+    .image-picker footer button.cloud-commit {
+        position: absolute;
+        right: 16px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+   
+    .image-picker .selected {
+        outline: 1px solid rgb(52, 52, 236);
+    }
+}

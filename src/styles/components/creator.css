@@ -1,0 +1,135 @@
+@media screen and (min-width: 768px) {
+    .content-creator-content {
+        position: relative;
+        width: 100%;
+        height: calc(100% - 64px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .content-creator-content .application-header {
+        position: relative;
+        width: 80%;
+        display: flex;
+        align-items: center;
+        height: 72px;
+        margin-bottom: 40px;
+    }
+    .application-header .header-interface{
+        position: relative;
+        height: 64px;
+        margin-right: 16px;
+        color: #676767;
+    }
+    .header-interface .title {
+        height: 24px;
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+    }
+    .header-interface .widget ,
+    .header-interface .widget .header-input{
+        position: relative;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        
+    }
+    .header-input.url {
+        position: relative;
+        width: 96px;
+    }
+    .header-input.name {
+        width: 320px;
+    }
+
+    .editor-item {
+        position: relative;
+        width: 80%;
+        height: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 24px;
+    }
+    .editor-item .row-item {
+        position: relative;
+        width: 320px;
+        height: 56px;
+        flex-shrink: 0;
+    }
+
+    .row-item .header{
+        height: 34px;
+        width: 240px;
+        display: flex;
+        align-items: center;
+    }
+
+    .row-item .body {
+        width: 240px;
+        align-items: flex-start;
+    }
+
+    .row-item .widget,
+    .row-item input{
+        height: 32px;
+        display: flex;
+        align-items: center;
+        width: 320px;
+    }
+    .row-item.dropdown {
+        position: relative;
+        width: 240px
+    }
+
+    .row-item input {
+        position: relative;
+        width: 320px
+    }
+    .row-item .title {
+        position: relative;
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .row-item .type-selector {
+        position: relative;
+        height: 34px;
+    }
+    .type-selector .display {
+        display:flex;
+        align-items: center;
+    }
+    .addition-item {
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: 320px;
+        justify-content: center;
+        height: 32px;
+        flex-shrink: 0;
+    }
+    .editor-item.button {
+        justify-content: space-between;
+    }
+    footer {
+        position: fixed;
+        width: calc(100% - 160px);
+        height: 63px;
+        border-top: 1px solid #d0d0d0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    footer .create-complete {
+        position: absolute;
+        right: 16px;
+        width: 160px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

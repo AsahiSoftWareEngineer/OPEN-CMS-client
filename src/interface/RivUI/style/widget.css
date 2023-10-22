@@ -1,0 +1,730 @@
+
+button.riv-ui-button,
+a.riv-ui-link-button {
+    min-width: 80px;
+    min-height: 24px;
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 1px 1px #d0d0d0;
+    color: #676767;
+    cursor: pointer;
+    font-size: 14px;
+}
+a.riv-ui-link-button {
+    width: 96px;
+    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+button.riv-ui-button:hover,
+a.riv-ui-link-button:hover{
+    animation: button-hover .3s ease 0s forwards;
+}
+
+.riv-ui-toggle {
+    position: relative;
+    width: 56px;
+    height: 24px;
+    border-radius: 12px;
+    border: solid 1px #d0d0d0;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.riv-ui-toggle .background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.riv-ui-toggle .switch{
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: none;
+    background-color: #fff;
+    box-shadow: 0 0 1px 1px #d0d0d0;
+    cursor: pointer;
+    margin: 0 0px;
+    overflow: hidden;
+}
+
+.riv-ui-toggle .background.active {
+    background-color: #94b831
+}
+
+.riv-ui-toggle .background.unactive {
+    background-color: #fff;
+}
+
+.riv-ui-toggle .switch.active {
+    transition: .5s;
+    transform: translateX(32px)
+}
+
+.riv-ui-toggle .switch.unactive {
+    transition: .5s;
+    transform: translateX(0px);
+}
+
+input.riv-ui-input-text {
+    min-width: 80px;
+    min-height: 16px;
+    border: none;
+    border-radius: 5px;
+    border: solid 1px #d0d0d0;
+    outline: none;
+    color: #676767;
+    font-size: 14px;
+}
+
+input.riv-ui-input-text:focus {
+    animation: text-focus .3s ease 0s forwards;
+}
+textarea:focus {
+    animation: text-focus .3s ease 0s forwards;
+}
+
+.riv-ui-custom,
+.riv-ui-custom-hidden {
+    min-width: 80px;
+    min-height: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.riv-ui-custom .title,
+.riv-ui-custom-hidden .title {
+    min-height: 16px;
+    min-width: 80px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    color: #676767;
+}
+
+.riv-ui-custom .widget,
+.riv-ui-custom-hidden .widget {
+    min-height: 24px;
+    min-width: 80px;
+    display: flex;
+    align-items: flex-start;
+    
+}
+.riv-ui-custom-hidden .widget{
+    border: solid 1px #d0d0d0;
+    align-items: center;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.riv-ui-custom-hidden .widget input {
+    min-width: 80px;
+    min-height: 24px;
+    border: none;
+    outline: none;
+    color: #676767;
+    font-size: 14px;
+}
+
+.riv-ui-custom-hidden .widget button {
+    position: relative;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #676767;
+    padding: 0;
+    width: 16px;
+    height:100%;
+    cursor: pointer;
+}
+
+.riv-ui-dropdown {
+    position: relative;
+    width: 96px;
+    height: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.riv-ui-dropdown .header {
+    position: relative;
+    width: 120px;
+    height: 24px;
+    flex-shrink: 0;
+    border: solid 1px #d0d0d0;
+    border-radius:  5px;
+    display: flex;
+    align-items:center
+}
+.riv-ui-dropdown .header .display {
+    position: relative;
+    width: calc(100% - 8px);
+    height: 100%;
+    font-size: 14px;
+    margin-left: 8px;
+    color: #676767;
+}
+
+.riv-ui-dropdown .header .dropdown-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    color: #676767;
+    outline: 0;
+    cursor: pointer;
+}
+
+.riv-ui-dropdown .header .dropdown-toggle.open {
+    transition: .5s;
+    transform: rotate(180deg);
+}
+
+.riv-ui-dropdown .header .dropdown-toggle.close {
+    transition: .5s;
+    transform: rotate(0deg)
+}
+
+.riv-ui-dropdown .header .dropdown-toggle svg {
+    color: #676767;
+    fill: #676767;
+}
+
+.riv-ui-dropdown .body {
+    position: relative;
+    width: 100%;
+    max-height: 136px;
+    box-shadow: 0 0 1px 1px #f0f0f0;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 10;
+    background-color: #fff;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    flex-shrink: 0;
+}
+
+.riv-ui-dropdown .body ul {
+    position: relative;
+    padding: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+}
+
+.riv-ui-dropdown .body li {
+    position: relative;
+    width: 100%;
+    height: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.riv-ui-dropdown .body button {
+    position: relative;
+    width: 95%;
+    height: 32px;
+    border-radius: 5px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #676767;
+}
+
+.riv-ui-dropdown .body button:hover {
+    background-color: #f0f0f0;
+}
+
+.riv-ui-loading {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    border-radius:5px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.riv-ui-loading .spiner {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 4px solid #94b831;
+    border-top: 4px solid transparent;
+    animation: loading 0.5s linear infinite;
+}
+
+
+.riv-ui-menu {
+    position: relative;
+    width: 136px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.riv-ui-menu .header {
+    position: relative;
+    width: 100%;
+    height:0;
+}
+
+.riv-ui-menu .body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.riv-ui-menu .body ul{
+    position: relative;
+    width: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;    
+}
+
+.riv-ui-menu  .body li {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.riv-ui-menu .body a {
+    position: relative;
+    width: 95%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius:5px;
+}
+
+.riv-ui-menu .body a.focused {
+    color: #94b831;
+    fill: #94b831;
+    background-color: #f0f0f0;
+}
+
+.riv-ui-menu .body a.unfocused {
+    color: #676767;
+    fill: #676767;
+    background-color: transparent;
+}
+
+
+.riv-ui-menu .body a .icon {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.riv-ui-menu .body a .name {
+    position: relative;
+    width: calc(100% - 40px);
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.riv-ui-menu .body a:hover {
+    animation: menu-hover .2s ease 0s forwards;
+}
+
+
+.riv-ui-floating-button {
+    position: relative;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 0 4px 4px #f0f0f0;
+    background-color: #94b831;
+    color: #fff;
+    fill: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.riv-ui-floating-button svg {
+    position: relative;
+    width: 24px;
+    height: 24px;
+}
+
+
+.riv-ui-pie-chart {
+    position: relative;
+    width: 272px;
+    height: 256px;
+    box-shadow: 0 0 1px 1px #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.riv-ui-pie-chart .header{
+    position: relative;
+    width: 100%;
+    height: 95px;
+    border-bottom: 1px solid #d0d0d0;
+    display: flex;
+    align-items: center;
+}
+
+.riv-ui-pie-chart .body {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    height: calc(100% - 96px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.riv-ui-pie-chart .chart-area {
+    position: relative;
+    width: 240px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+}
+
+.riv-ui-pie-chart .body canvas {
+    margin: 0;
+    aspect-ratio: auto 600/300;
+    width: 240px!important;
+    height: 120px!important;
+}
+
+.riv-ui-pie-chart .header .info,
+.riv-ui-rectangle-line-chart .header .info,
+.riv-ui-square-line-chart .header .info {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    right: 24px;
+    border: none;
+    border-radius: 16px;
+    background-color: #bdbdbd;
+    color: #fff;
+    fill: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+}
+
+.riv-ui-pie-chart .header .info svg ,
+.riv-ui-rectangle-line-chart .header .info svg,
+.riv-ui-square-line-chart .header .info svg {
+    position: relative;
+    width:24px;
+    height: 24px;
+}
+
+.riv-ui-pie-chart .header .display {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 24px;
+}
+
+.riv-ui-pie-chart .header .primary-text {
+    font-size: 10px;
+    font-weight: bold;
+    color: #565656;
+}
+
+.riv-ui-pie-chart .figure {
+    font-size: 24px;
+    color: #676767;
+    font-weight: medium;
+}
+
+.riv-ui-pie-chart .header .secondary-text {
+    font-size: 8px;
+    font-weight: bold;
+    color: #565656;
+}
+
+.riv-ui-calendar {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0 0 2px 2px #f0f0f0;
+}
+
+.riv-ui-calendar .header {
+    position: relative;
+    width: 100%;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.riv-ui-calendar .header span {
+    font-size: 14px;
+    color: #676767;
+    margin-left: 8px;
+}
+
+.riv-ui-calendar .prev-next-button {
+    position: absolute;
+    right: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.riv-ui-calendar .prev-next-button button {
+    border: none;
+    background-color: transparent;
+    color: #676767;
+    fill: #676767;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.riv-ui-calendar .body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.riv-ui-calendar .body table {
+    position: relative;
+    width: 95%;
+    height: 100%;
+}
+.riv-ui-calendar .body table thead td {
+    color: #676767;
+    font-weight: bold;
+    font-size:14px;
+}
+
+.riv-ui-calendar .body table td {
+    font-size: 14px;
+    flex-shrink: 0;
+    width: calc(100% / 7)
+}
+
+.riv-ui-calendar .body table .date-button {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: left;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    border-radius: 5px;
+    color: #676767;
+}
+
+
+.riv-ui-calendar .date-button.selected {
+    background-color: #f0f0f0!important;
+    color: #94b831!important;
+}
+
+
+
+.riv-ui-calendar .date-button.over {
+    color: #d0d0d0!important
+}
+.riv-ui-calendar .date-button.today {
+    color: #315ab8!important;
+}
+
+
+.riv-ui-calendar .body table .date-button:hover {
+    animation: menu-hover .3s ease 0s forwards;
+}
+
+.riv-ui-rectangle-line-chart {
+    position: relative;
+    width: 688px;
+    height: 312px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 1px 1px #f0f0f0;
+    border-radius: 5px;
+}
+
+.riv-ui-square-line-chart {
+    position: relative;
+    width: 296px;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 1px 1px #f0f0f0;
+    border-radius: 5px;
+}
+
+.riv-ui-rectangle-line-chart .header,
+.riv-ui-square-line-chart .header{
+    position: relative;
+    width: 100%;
+    height: 71px;
+    display: flex;
+    border-bottom: solid 1px #d0d0d0;
+    align-items: center;
+}
+
+.riv-ui-rectangle-line-chart .header .display,
+.riv-ui-square-line-chart .header .display{
+    display: flex;
+    flex-direction: column;
+    margin-left:24px;
+}
+
+.riv-ui-rectangle-line-chart .header .primary-text,
+.riv-ui-square-line-chart .header .primary-text {
+    font-size: 14px;
+    color: #676767;
+    font-weight: bold;
+}
+.riv-ui-rectangle-line-chart .header .secondary-text,
+.riv-ui-square-line-chart .header .secondary-text {
+    font-size: 10px;
+    color: #676767;
+}
+
+.riv-ui-rectangle-line-chart .body,
+.riv-ui-square-line-chart .body {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 72px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.riv-ui-rectangle-line-chart .body .chart-area,
+.riv-ui-square-line-chart .body .chart-area {
+    position: relative;
+    height: 100%;
+    width: 100% ; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.riv-ui-rectangle-line-chart .body canvas {
+    position: relative;
+    width: 560px!important;
+    height: 240px!important;margin: 0;
+}
+
+.riv-ui-square-line-chart .body canvas {
+    position: relative;
+    width: 280px!important;
+    margin: 0;
+}
+
+.riv-ui-checkbox {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border-radius: 5px;
+    border: none;
+    border: solid 1px #d0d0d0;
+    background-color: transparent;
+    padding: 0;
+    overflow: hidden;
+   cursor: pointer;
+}
+.riv-ui-checkbox.checked {
+    background-color: #94b831;
+}
+.riv-ui-checkbox.unchecked {
+    background-color: #fff
+}
+
+.riv-ui-checkbox svg {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    color: #fff;
+    fill: #fff;
+}
+
+
+
+
+@keyframes loading {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+@keyframes text-focus {
+    0%{}
+    100% {
+        background-color: #fafafa;
+    }
+}
+
+@keyframes button-hover {
+    0% {}
+    100% {
+        background-color: #fafafa;
+        color: #94b831;
+    }
+}
+
+@keyframes menu-hover {
+    0%{}
+    100% {
+        background-color: #f0f0f0;
+        color: #94b831;
+    }
+}

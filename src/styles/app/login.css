@@ -1,0 +1,43 @@
+@media screen and (min-width: 959px) {
+    .login-view {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .login-view .login-widget {
+        position: relative;
+        width: 560px;
+        height: 600px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .login-widget h2 {
+        color: #676767
+    }
+    .login-widget .login-interface {
+        position: relative;
+        width: 320px;
+        height: 48px;
+        margin-bottom: 32px;
+    }
+    .login-widget .login-interface .widget,
+    .login-widget .login-interface .widget input {
+        position: relative;
+        width: 320px;
+        height:32px
+    }
+    .login-button {
+        position: relative;
+        width: 240px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
