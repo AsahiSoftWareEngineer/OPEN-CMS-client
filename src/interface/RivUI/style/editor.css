@@ -1,0 +1,41 @@
+.md-header-block {
+    font-weight: 900;
+    color: #0550ae;
+}
+
+.md-code-inline {
+    color: #0550ae;
+}
+
+.md-quote-block {
+    color: #448adf;
+}
+.md-strong-inline {
+    font-weight: 900;
+}
+code {
+    font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace!important;
+}
+.md-editor .md-precode-block {
+    margin: 0;
+}
+
+.md-editor .md-link-inline {
+    color: #8250df
+}
+.md-editor .hljs-string {
+    color: #0a3069;
+}
+.md-editor .hljs-built_in {
+    color: #6639ba
+}
+
+.md-editor .hljs-keyword {
+    color: #cf222e;
+}
+.md-editor .hljs-title {
+    color: #953800;
+}
+.md-editor .hljs-function {
+    color: #6639ba;
+}

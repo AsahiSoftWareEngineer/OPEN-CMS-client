@@ -1,7 +1,7 @@
 import React from "react";
 import { Pen, Plus } from "react-bootstrap-icons";
 import { Button, FloatingButton, HiddenButtonInput, NavigationButton } from "../../interface/RivUI/src/widget";
-import { parse_url } from "../../module/common";
+import { make_url, make_uuid, parse_url } from "../../module/common";
 import "../../styles/components/table.css";
 
 export class AppTable extends React.Component {
@@ -65,7 +65,7 @@ export class UrlTable extends React.Component {
                     </tr>
                     <tr>
                         <td><p className="name">URL</p></td>
-                        <td><p className="name">説明</p></td>
+                        <td><p className="name">名前</p></td>
                     </tr>
                 </thead>
                 <tbody>
@@ -75,7 +75,13 @@ export class UrlTable extends React.Component {
                             <td><p className="name">/{item.url}</p></td>
                             <td><p className="name">{item.name}</p></td>
                             <td></td>
-                            <td><NavigationButton link={`/app/page/edit/${item.id}`}><Pen/>編集する</NavigationButton></td>
+                            <td>
+                                {item.is_blog?<>
+                                <NavigationButton link={`/app/page/edit/${item.id}/${make_url()}`}><Pen/>作成する</NavigationButton>
+                                </>:<>
+                                <NavigationButton link={`/app/page/edit/${item.id}`}><Pen/>編集する</NavigationButton>
+                                </>}
+                                </td>
                         </tr>
                         </>)
                     })}

@@ -1,13 +1,13 @@
 import React from "react";
 import { CloudArrowUp, X, Plus } from "react-bootstrap-icons";
-import { TextInput, TitleInterface, Button, NavigationButton } from "../../interface/RivUI/src/widget";
+import { TextInput, TitleInterface, Button, NavigationButton, RichTextEditor } from "../../interface/RivUI/src/widget";
 import { PageItem } from "../../module/editor";
 import "../../styles/components/editor.css";
 import "../../styles/components/modal.css";
 import { can_access, has_account, binary_request, json_request, renew_token } from "../../module/http";
 import { routing } from "../../module/config/routing";
 import { Link } from "react-router-dom";
-import { parse_url } from "../../module/common";
+import { make_uuid, parse_url } from "../../module/common";
 
 const test_content = [
     {
@@ -37,10 +37,13 @@ export class ContentEditor extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: "トップページ",
+            name: "",
             items:[],
             is_open: false,
-            hold_img_id: ""
+            hold_img_id: "",
+            is_blog: false,
+            app_id: "",
+            url: "",
         }
     }
 
@@ -55,9 +58,12 @@ export class ContentEditor extends React.Component {
             page_id: parse_url(window.location.pathname, 4)
         })
 
-        console.log(request)
 
         this.setState({
+            name: request.info.name,
+            is_blog: request.info.is_blog,
+            app_id: request.info.app_id,
+            url: request.info.url,
             items: request.contents
         })
     }
@@ -90,15 +96,37 @@ export class ContentEditor extends React.Component {
 
         if(!have_account) return;
         if(!is_accessible) await renew_token()
-
-        const reqeuest = await json_request(`${routing.api.http}/page/`, {
-            command: "save_as_draft",
-            id: parse_url(window.location.pathname, 4),
-            items: this.state.items
-        })
-        if(reqeuest.response){
-            window.alert("下書きに保存しました")
+        if(this.state.is_blog){
+            const name = window.prompt("このページの名前を入力してください")
+            const reqeuest = await json_request(`${routing.api.http}/page/`, {
+                command: "save_as_draft",
+                id: make_uuid(),
+                app_id: this.state.app_id,
+                url: `${this.state.url}/${parse_url(window.location.pathname, 5)}`,
+                items: this.state.items.map((item) => {
+                    item.id = make_uuid();
+                    return item;
+                   }),
+                name: name,
+            })
+            console.log(reqeuest)
+            if(reqeuest.response){
+                window.alert("下書きに保存しました")
+            }
+        } else {
+            const reqeuest = await json_request(`${routing.api.http}/page/`, {
+                command: "save_as_draft",
+                id: parse_url(window.location.pathname, 4),
+                items: this.state.items,
+                name: this.state.name,
+                app_id: this.state.app_id,
+                url: this.state.url,
+            })
+            if(reqeuest.response){
+                window.alert("下書きに保存しました")
+            }
         }
+
     }
 
     publishContent = async () => {
@@ -107,14 +135,20 @@ export class ContentEditor extends React.Component {
 
         if(!have_account) return;
         if(!is_accessible) await renew_token()
-
-        const reqeuest = await json_request(`${routing.api.http}/page/`, {
-            command: "published",
-            id: parse_url(window.location.pathname, 4),
-            items: this.state.items
-        })
-        if(reqeuest.response){
-            window.alert("公開しました")
+        if(!this.state.is_blog){
+            const reqeuest = await json_request(`${routing.api.http}/page/`, {
+                command: "published",
+                id: parse_url(window.location.pathname, 4),
+                items: this.state.items,
+                url: this.state.url,
+                name: this.state.name,
+                app_id: this.state.app_id
+            })
+            if(reqeuest.response){
+                window.alert("公開しました")
+            }
+        } else {
+            window.alert("一度下書きに保存してください")
         }
     }
 
@@ -147,6 +181,13 @@ export class ContentEditor extends React.Component {
                         alt={item.alt}
                         url={item.url}
                         open={() => {this.setState({is_open: true, hold_img_id: item.id});}}
+                        />
+                    case 3:
+                        return <RichTextComponent
+                        name={item.name}
+                        col_name={item.col_name}
+                        content={item.content}
+                        contentChange={(value)=> {this.contentChange(item.id, value)}}
                         />
                 }
             })}
@@ -342,6 +383,31 @@ export class ImagePickerModal extends React.Component {
         </div>
 
         </>):<></>}
+        </>)
+    }
+}
+
+export class RichTextComponent extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render = () => {
+        return (<>
+        <div className="text-item content-item">
+            <TitleInterface
+            className="item-text-input"
+            title={`${this.props.name}(${this.props.col_name})`}
+            element={<>
+            <div className="rich-text-editor">
+                <RichTextEditor 
+                content={this.props.content?this.props.content:""}
+                onChange={(value) =>{this.props.contentChange(value)}}/>
+            </div>
+            
+            </>}
+            />
+        </div>
         </>)
     }
 }

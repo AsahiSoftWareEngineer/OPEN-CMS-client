@@ -42,7 +42,8 @@ export class ContentCreator extends React.Component {
         this.state = {
             items: [],
             url: "",
-            name: ""
+            name: "",
+            is_blog_mode: false,
         }
     }
 
@@ -93,6 +94,7 @@ export class ContentCreator extends React.Component {
             name: this.state.name,
             url: this.state.url,
             items: this.state.items,
+            is_blog_mode: this.state.is_blog_mode,
             created_at: new Date(),
             updated_at: new Date()
         })
@@ -122,6 +124,13 @@ export class ContentCreator extends React.Component {
                 className="header-interface"
                 element={<>
                 <TextInput value={this.state.name} className="name header-input" onChange={(e)=>{this.setState({name:e.target.value})}}/>
+                </>}
+                />
+                <TitleInterface
+                element={<>
+                <Button onClick={() => {this.setState({is_blog_mode: !this.state.is_blog_mode})}}>
+                    {this.state.is_blog_mode?<>オブジェクトモードにする</>:<>ブログモードにする</>}
+                </Button>
                 </>}
                 />
             </div>

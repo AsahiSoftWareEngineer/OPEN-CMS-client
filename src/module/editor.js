@@ -33,6 +33,11 @@ export class PageItem {
                     id: 2,
                     text: "画像",
                     value: 2
+                },
+                {
+                    id: 3,
+                    text: "リッチテキスト",
+                    value: 3
                 }
             ]
         }

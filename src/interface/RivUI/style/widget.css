@@ -695,6 +695,99 @@ textarea:focus {
     fill: #fff;
 }
 
+.riv-ui-rich-text-editor{
+    position: relative;
+    width: 100%;
+    height: 600px;
+    border: solid 1px #d0d0d0;
+    border-radius: 5px;
+    margin-bottom: 100px;
+}
+
+.riv-ui-rich-text-editor .header {
+    position: relative;
+    width: 100%;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    border-bottom: solid 1px #d0d0d0;
+}
+.riv-ui-rich-text-editor .header .toggle {
+    position: absolute;
+    right: 16px;
+}
+.riv-ui-rich-text-editor .body {
+    position: absolute;
+    width: 100%;
+    height:calc(100% - 56px);
+    display: flex;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding-top: 8px;
+}
+
+.riv-ui-rich-text-editor .line-bar {
+    position: relative;
+    width: 23px;
+    border-right: 1px solid #d0d0d0;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.riv-ui-rich-text-editor .line-bar span {
+    position: relative;
+    line-height: 22px;
+    height: 22px;
+    color: #787878;
+    font-size: 14px;
+    flex-shrink: 0;
+    font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
+}
+
+.riv-ui-rich-text-editor .preview,
+.riv-ui-rich-text-editor .text-editor {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.riv-ui-rich-text-editor .text-view,
+.riv-ui-rich-text-editor textarea {
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    border: none;
+    resize: none;
+    outline: 0;
+    line-height: 22px;
+    font-size:14px;
+    color: #565656;
+    font-size: 14px;
+    padding-left: 8px;
+}
+.riv-ui-rich-text-editor .text-view {
+    font-size:14px;
+    color: #565656;
+    white-space: pre-wrap;
+    font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
+}
+
+.riv-ui-rich-text-editor .text-view p {
+    margin: 0;
+}
+.riv-ui-rich-text-editor textarea {
+    min-height: 22px;
+    white-space: pre-wrap;
+    color: transparent;
+    caret-color: #000000;
+    background-color: transparent!important;
+    font-size:14px;
+    font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace!important;
+}
 
 
 

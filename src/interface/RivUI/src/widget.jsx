@@ -1,11 +1,19 @@
 import React from "react";
 import "../style/widget.css";
+import "../style/editor.css"
 import {CaretDown, CaretLeft, Eye, EyeSlash, Info, CaretRight, Check} from "react-bootstrap-icons"
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, CategoryScale,LinearScale, PointElement, LineElement, } from "chart.js";
 import { Pie, Line } from "react-chartjs-2";
 import {line_chart_options, make_uuid, none_pie_data, pie_chart_options} from "../src/options"
 import { Link } from "react-router-dom";
 ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale, LineElement, PointElement);
+
+import Markdown from 'react-markdown'
+import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
+import {dark} from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { compile } from "./compiler";
+
+
 
 
 
@@ -546,6 +554,76 @@ export class Checkbox extends React.Component{
             <Check/>
             </>):(<></>)}
         </button>
+        </>)
+    }
+}
+
+
+export class RichTextEditor extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            is_preview: false,
+            parsed: ""
+        }
+    }
+
+    contentChange = (content) => {
+        this.props.onChange(content)
+    }
+    render = () => {
+        console.log(this.props)
+        return (<>
+        <div className="riv-ui-rich-text-editor">
+            <div className="header">
+                <Button className="toggle" onClick={() => {this.setState({ is_preview: !this.state.is_preview });}}>{this.state.is_preview?<>プレビューモード</>:<>編集モード</>}</Button>
+            </div>
+            <div className="body">
+                {this.state.is_preview?<>
+                <div className="preview">
+                <Markdown
+                children={this.props.content}
+                components={{
+                  code(props) {
+                    const {children, className, node, ...rest} = props
+                    const match = /language-(\w+)/.exec(className || '')
+                    return match ? (
+                      <SyntaxHighlighter
+                        {...rest}
+                        children={String(children).replace(/\n$/, '')}
+                        style={dark}
+                        language={match[1]}
+                        PreTag="div"
+                      />
+                    ) : (
+                      <code {...rest} className={className}>
+                        {children}
+                      </code>
+                    )
+                  }
+                }}
+  />
+
+                </div>
+                </>:<>
+                <div className="line-bar">
+                    {this.props.content.split("\n").map((value, i) => {
+                        return <span>{i+1}</span>
+                    })}
+                </div>
+                <div className="text-editor"  style={{height: `${this.props.content.split("\n").length * 22}px`}}>
+                    <div className="text-view" dangerouslySetInnerHTML={{__html: compile(this.props.content?this.props.content:"")}}>
+                        
+                    </div>
+                    <textarea
+                    style={{height: `${this.props.content.split("\n").length * 22}px`}}
+                    value={this.props.content}
+                    onChange={(e) => {this.contentChange(e.target.value)}}
+                    />
+                </div>
+                </>}
+            </div>
+        </div>
         </>)
     }
 }
